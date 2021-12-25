@@ -1,0 +1,15 @@
+// It's for fetching data from Zoho Apps or any public APIs
+
+ resp = invokeUrl
+    [
+    	url: "https://fakestoreapi.com/products"
+    	type: GET
+    ];
+	for each rec in resp
+    {
+		mp= Map();
+		mp.put("Training_Code", rec.get("title"));
+		mp.put("Training_Description",rec.get("description"));
+		mpp= Map();
+    response = zoho.creator.createRecord("app owner","app name","form nane",mp,mpp,"connection");
+    } 

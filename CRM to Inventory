@@ -1,0 +1,12 @@
+resp= zoho.crm.getRecordById("Products", pro_id);
+info resp;
+query_param = Map();
+query_param.put("sku", resp.get("Product_Code"));
+query_param.put("name", resp.get("Product_Name") );
+query_param.put("rate", resp.get("Unit_Price"));
+query_param.put("description",resp.get("Description"));
+response= zoho.inventory.createRecord("items", "org id", query_param, "zinv");
+info response;
+
+// pro_id , We have to select while mapping arguments
+// zinv is connection name
